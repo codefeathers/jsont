@@ -3,15 +3,15 @@
 JSONT is an extension to JSON that lets you use templates.
 
 JSONT's syntax extension is simple:
-	- anything of the format `$[var]` is replaced with the value of `var`.
-	- anything of the format `$[date:now]` calls the corresponding library method you supply it with.
+- anything of the format `$[var]` is replaced with the value of `var`.
+- anything of the format `$[date:now]` calls the corresponding library method you supply it with.
 
 `date` (JS Date) and `oid` (BSON ObjectID) are inbuilt library methods. The available calls are:
-	- `date:now`
-	- `data:+1h`
-	- `data:-1d`
-	- `oid:new`
-	- `oid:5b912a771c9d44580b1c5915`
+- `date:now`
+- `data:+1h`
+- `data:-1d`
+- `oid:new`
+- `oid:5b912a771c9d44580b1c5915`
 
 ## Usage
 
