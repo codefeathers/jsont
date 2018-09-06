@@ -18,10 +18,13 @@ JSONT's syntax extension is simple:
 ```JavaScript
 const JSONT = require('@codefeathers/jsont');
 
+const env = { '1': 'hello' };
+
 console.log(
 	JSONT.toJSON(
 		JSONT.parse(
-			'{ "sample": "$[1]", "now": "$[date:now]" }'
+			'{ "sample": "$[1]", "now": "$[date:now]" }',
+			env,
 		)));
 ```
 
