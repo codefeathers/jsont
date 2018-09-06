@@ -1,0 +1,20 @@
+dependencies:
+  bson: 3.0.2
+  safe-eval: 0.4.1
+packages:
+  /bson/3.0.2:
+    dev: false
+    engines:
+      node: '>=4.0.0'
+    resolution:
+      integrity: sha512-HrDzr7y/ZkgyEVancPVDmfbaD8j81GzSNr6h6yUd/yZfavkrlrqI8aUZMCHrhyMoCW2/I+vEJDat1xDWRwVR6A==
+  /safe-eval/0.4.1:
+    dev: false
+    resolution:
+      integrity: sha512-wmiu4RSYVZ690RP1+cv/LxfPK1dIlEN35aW7iv4SMYdqDrHbkll4+NJcHmKm7PbCuI1df1otOcPwgcc2iFR85g==
+registry: 'https://registry.npmjs.org/'
+shrinkwrapMinorVersion: 9
+shrinkwrapVersion: 3
+specifiers:
+  bson: ^3.0.2
+  safe-eval: ^0.4.1
