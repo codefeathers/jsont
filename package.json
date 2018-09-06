@@ -1,6 +1,6 @@
 {
 	"name": "@codefeathers/jsont",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"private": false,
 	"description": "Powerful JSON Templating when you need it",
 	"main": "index.js",
