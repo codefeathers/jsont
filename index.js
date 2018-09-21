@@ -8,7 +8,11 @@ const operators = [ '+', '-', '*', '/' ];
 
 const r = String.raw.bind(String.raw);
 
-const esc = r`(?<!\\)`;
+/* Removed temporarily because of no support on node<6.
+	See: https://github.com/codefeathers/jsont/issues/1 */
+// const esc = r`(?<!\\)`;
+
+const esc = '';
 
 const t = {};
 t['1m'] = 1000 * 60;
@@ -66,7 +70,9 @@ const stdlib = {
 
 const stdJS = {
 
-	js: (str) => safeeval(str.replace(/(?<!\\)\\/, ''), {}),
+	/* Inline JS support is removed.
+		See: https://github.com/codefeathers/jsont/issues/1
+	js: (str) => safeeval(str.replace(XRegExp(esc + ''), ''), {}), */
 
 };
 

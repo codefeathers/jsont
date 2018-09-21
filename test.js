@@ -8,7 +8,7 @@ const sampleString = r`{
 	"2 days later": "$[date:+2d]",
 	"now": "$[date:now]",
 	"oid": "$[oid:5b639cef06c208f42ee09bfe]",
-	"thing:": "$[js:(() => [ 4 \])()]"
+	"inlineJS:": "$[js:(() => [ 4 \])()]"
 }`;
 
 const env = { a: '[ "5" ]' };
