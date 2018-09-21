@@ -1,5 +1,6 @@
-const eval = require('safe-eval');
+const safeeval = require('safe-eval');
 const ObjectId = require('bson/lib/bson/objectid');
+const XRegExp = require('xregexp');
 
 const JSONT = {};
 
@@ -14,7 +15,7 @@ t['1m'] = 1000 * 60;
 t['1h'] = t['1m'] * 60;
 t['1d'] = t['1h'] * 24;
 
-const opRegex = new RegExp(
+const opRegex = XRegExp(
 	'^['
 	+ operators
 		.reduce((acc, cur, i) =>
@@ -65,13 +66,13 @@ const stdlib = {
 
 const stdJS = {
 
-	js: (str) => eval(str.replace(/(?<!\\)\\/, ''), {}),
+	js: (str) => safeeval(str.replace(/(?<!\\)\\/, ''), {}),
 
 };
 
 const ExecSTD = (test, string, STD) => {
 
-	const regexp = new RegExp(
+	const regexp = new XRegExp(
 		esc + r`\$`
 		+ esc + r`\[`
 		+ test
@@ -80,9 +81,9 @@ const ExecSTD = (test, string, STD) => {
 		+ esc + r`\]`, 'g');
 
 	let match;
-	while((match = regexp.exec(string)) !== null) {
+	while((match = XRegExp.exec(string, regexp)) !== null) {
 
-		const stdReplaceable = STD[test](match.groups.arguments);
+		const stdReplaceable = STD[test](match.arguments);
 
 		string = stringReplaceByIndex(
 			string,
@@ -106,17 +107,17 @@ JSONT.parse = (text, ENV = {}, STD = {}, options = {}) => {
 		Object.keys(ENV)
 		.reduce(
 			(acc, key) => {
-				const re = new RegExp(`\\$\\[${key}\\]`, 'g');
-				return acc.replace(re, ENV[key]);
+				const re = new XRegExp(`\\$\\[${key}\\]`, 'g');
+				return XRegExp.replace(acc, re, ENV[key]);
 			},
-			text,
+			text
 		);
 
 	return Object.keys(STD)
 		.reduce(
 			/* For every stdlib item */
 			(str, stdKey) => ExecSTD(stdKey, str, STD),
-			string,
+			string
 		).replace(/\\/g, '');
 
 };

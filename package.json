@@ -1,6 +1,6 @@
 {
 	"name": "@codefeathers/jsont",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"private": false,
 	"description": "Powerful JSON Templating when you need it",
 	"main": "index.js",
@@ -24,6 +24,7 @@
 	"homepage": "https://github.com/codefeathers/jsont#readme",
 	"dependencies": {
 		"bson": "^3.0.2",
-		"safe-eval": "^0.4.1"
+		"safe-eval": "^0.4.1",
+		"xregexp": "^4.2.0"
 	}
 }
